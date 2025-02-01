@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de San Valentín</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fde8e8;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .carta {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            border: 2px solid #d32f2f;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .carta.abierta {
+            transform: rotateY(180deg);
+        }
+
+        .carta .frente,
+        .carta .atras {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .carta .frente {
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        .carta .atras {
+            background-color: #fff;
+            border-radius: 10px;
+            transform: rotateY(180deg);
+        }
+
+        .carta .atras img {
+            max-width: 100%;
+            max-height: 150px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .mensaje {
+            font-size: 1.2rem;
+            color: #d32f2f;
+        }
+
+        .boton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .boton:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="carta" onclick="abrirCarta()">
+        <div class="frente">
+            <div class="mensaje">¿Quieres pasar San Valentín conmigo?</div>
+            <button class="boton">Abrir carta</button>
+        </div>
+        <div class="atras">
+            <img src="https://via.placeholder.com/150" alt="Nuestra foto">
+            <div class="mensaje">De Abraham, fuiste la experiencia más linda que pude haber tenido ❤️</div>
+        </div>
+    </div>
+
+    <script>
+        function abrirCarta() {
+            const carta = document.querySelector('.carta');
+            carta.classList.add('abierta');
+        }
+    </script>
+</body>
+</html>
